@@ -40,3 +40,12 @@ max_len = 400
 batch_size = 32
 embedding_dims = 50
 epochs = 5
+
+print('loading data...')
+x_train, y_train, x_test, y_test = imdb.load_data(num_words=max_features)
+train_mean_len = np.mean(list(map(len, x_train)), dtype=int)
+test_mean_len = np.mean(list(map(len, x_test)), dtype=int)
+print(len(x_train), 'train seq')
+print(len(x_test), 'test seq')
+print('Average train sequence length: {}'.format(train_mean_len))
+print('Average test sequence length: {}'.format(test_mean_len))
